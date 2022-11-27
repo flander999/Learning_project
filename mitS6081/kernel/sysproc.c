@@ -6,6 +6,7 @@
 #include "spinlock.h"
 #include "proc.h"
 
+
 uint64
 sys_exit(void)
 {
@@ -89,3 +90,19 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+// user add syscall
+uint64
+sys_trace(void)
+{
+  int trace_mask;
+  argint(0, &trace_mask);
+
+  if(trace_mask == 0){
+    printf("Failed to trace...\n");
+    return -1;
+  }
+  myproc()->trace_mask = trace_mask;
+  return 0;
+}
+
