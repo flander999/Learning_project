@@ -194,6 +194,9 @@ UPROGS=\
 	$U/_find\
 	$U/_xargs\
 	$U/_trace\
+	$U/_sysinfotest\
+
+	
 
 ifeq ($(LAB),$(filter $(LAB), lock))
 UPROGS += \
