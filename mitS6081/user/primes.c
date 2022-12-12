@@ -19,7 +19,7 @@ int main(int args, char* argv[]){
         // filtering. And it needs to send -1 as a signal to end all these process.
         if(fork() != 0){
                 close(p[0]); // since main proc do not need read from any others
-                for(int i = 2; i <= 35; i++){
+                for(int i = 2; i < 35; i++){
                         write(p[1],&i,sizeof(int));
                 }
                 int buf = -1;
